@@ -29,6 +29,23 @@ public class BrowserUtil {
     }
 
     /**
+     * attempts to click on provided element until given time runs out
+     *
+     * @param element
+     * @param timeout
+     */
+    public static void clickWithTimeOut(WebElement element, int timeout) {
+        for (int i = 0; i < timeout; i++) {
+            try {
+                element.click();
+                return;
+            } catch (WebDriverException e) {
+                waitFor(1);
+            }
+        }
+    }
+
+    /**
      * return a list of string from a list of elements
      *
      * @param list of webelements
@@ -133,6 +150,5 @@ public class BrowserUtil {
     public static void scrollToElement(WebElement element) {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
     }
-
 
 }

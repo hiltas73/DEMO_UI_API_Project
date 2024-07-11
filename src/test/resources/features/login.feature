@@ -1,5 +1,5 @@
 Feature: Successful Login
-  @wip
+
   Scenario: Verify login with google email
     Given user navigate to the url
     When user enters google email
