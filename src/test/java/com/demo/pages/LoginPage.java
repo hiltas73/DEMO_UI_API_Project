@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class LoginPage extends BasePage{
 
     public LoginPage() {
@@ -20,6 +22,9 @@ public class LoginPage extends BasePage{
 
     @FindBy(id = "loginButton")
     public WebElement loginBtn;
+
+    @FindBy(xpath = "//div[@class='fMenu']//a")
+    public List<WebElement> footerLinks;
 
     public void login(String email, String password){
         this.email.sendKeys(ConfigurationReader.getProperty("email"));
