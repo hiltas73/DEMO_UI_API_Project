@@ -1,7 +1,9 @@
 package com.demo.pages;
 
+import com.demo.utilities.BrowserUtil;
 import com.demo.utilities.ConfigurationReader;
 import com.demo.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -32,6 +34,10 @@ public class LoginPage extends BasePage{
         this.loginBtn.click();
     }
 
+    public void navigateModule(String moduleName){
+        WebElement element = Driver.getDriver().findElement(By.xpath("//a[@title='" + moduleName + "']"));
+        BrowserUtil.clickWithJS(element);
 
+    }
 
 }
